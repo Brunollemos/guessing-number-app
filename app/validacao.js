@@ -1,6 +1,11 @@
 function verificaValor(chute) {
     const numero = +chute;
 
+    if (chuteForInvalido(numero)) {
+        elementoChute.innerHTML += "<div>Valor inválido</div>";
+        return;
+    }
+
     if (numero === numeroSecreto) {
         document.body.innerHTML = `<h2>Você Acertou!</h2>
         <h3>O numero secreto era ${numeroSecreto}</h3>
@@ -20,4 +25,8 @@ function verificaValor(chute) {
         </i></div>
         `;
     }
+}
+
+function chuteForInvalido(numero) {
+    return Number.isNaN(numero);
 }
